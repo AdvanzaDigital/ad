@@ -36,46 +36,35 @@
     
 </head>
 <body>
-    <script>
-  // Disable right-click
+ <script>
+ 
   document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
   });
 
-  // Disable key combinations for developer tools
+
   document.addEventListener('keydown', function(e) {
-    // Cross-platform key detection
     const key = e.key.toLowerCase();
     const ctrl = e.ctrlKey;
     const shift = e.shiftKey;
     const alt = e.altKey;
-    const meta = e.metaKey; // Command key on Mac
+    const meta = e.metaKey;
 
-    // F12
-    if (key === 'f12') {
-      e.preventDefault();
-    }
-
-    // Ctrl+Shift+I or Cmd+Opt+I
-    if ((ctrl || meta) && shift && key === 'i') {
-      e.preventDefault();
-    }
-
-    // Ctrl+Shift+J or Cmd+Opt+J
-    if ((ctrl || meta) && shift && key === 'j') {
-      e.preventDefault();
-    }
-
-    // Ctrl+U or Cmd+U
-    if ((ctrl || meta) && key === 'u') {
-      e.preventDefault();
-    }
-
-    // Ctrl+Shift+C or Cmd+Shift+C
-    if ((ctrl || meta) && shift && key === 'c') {
+    if (
+      key === 'f12' ||                                
+      (ctrl && shift && key === 'i') ||                
+      (meta && alt && key === 'i') ||                  
+      (ctrl && shift && key === 'j') ||               
+      (meta && alt && key === 'j') ||                 
+      (ctrl && shift && key === 'c') ||                
+      (meta && shift && key === 'c') ||                
+      (ctrl && key === 'u') ||
+      (meta && key === 'u')                            
+    ) {
       e.preventDefault();
     }
   });
+</script>
 </script>
     <script async src="https://events.framer.com/script?v=2" data-fid="58be3f8c9b974c76dd43649cb28ff9c02626136062ebc2c9326226e79e84fc93" data-no-nt></script>
     
